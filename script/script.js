@@ -37,4 +37,4 @@ imagem.forEach((item) => {
 });
 
 const link = document.querySelector("a[href^=https");
-link.setAttribute("href", "https://www.github.com");
+link.setAttribute("href", "https://github.com/luancalil");
