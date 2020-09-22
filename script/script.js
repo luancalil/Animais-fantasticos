@@ -1,40 +1,19 @@
-const animais = document.getElementById("animais");
+const tabMenu = document.querySelectorAll(".js-tabmenu li");
+const tabContent = document.querySelectorAll(".js-tabcontent section");
 
-const gridSection = document.getElementsByClassName("grid-section");
-console.log("grid-section");
+if (tabMenu.length && tabContent.length) {
+  tabContent[0].classList.add("active");
 
-const primeiraLI = document.querySelector("li");
+  function activeTab(index) {
+    tabContent.forEach((section) => {
+      section.classList.remove("active");
+    });
+    tabContent[index].classList.add("active");
+  }
 
-const animaisImg = document.querySelectorAll("img");
-
-const paragrafo = document.querySelectorAll("p");
-const paragrafoArray = Array.from(paragrafo);
-
-paragrafoArray.forEach((item) => {
-  console.log(item);
-});
-
-paragrafoArray.forEach((item) => {
-  console.log(item.innerText);
-});
-
-const menu = document.querySelectorAll(".menu a");
-
-menu.forEach((item) => {
-  item.classList.add("ativo");
-});
-
-menu.forEach((item) => {
-  item.classList.remove("ativo");
-});
-
-menu[0].classList.add("ativo");
-
-const imagem = document.querySelectorAll("img");
-
-imagem.forEach((item) => {
-  console.log(item.hasAttribute("alt"));
-});
-
-const link = document.querySelector("a[href^=https");
-link.setAttribute("href", "https://github.com/luancalil");
+  tabMenu.forEach((itemMenu, index) => {
+    itemMenu.addEventListener("click", () => {
+      activeTab(index);
+    });
+  });
+}
